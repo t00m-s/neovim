@@ -66,8 +66,6 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 
 -- Select all
 vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select all' })
-vim.keymap.set('v', '<TAB>', '>gv')
-vim.keymap.set('v', '<S-TAB>', '<gv')
 
 -- Oil
 vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
@@ -79,4 +77,6 @@ vim.keymap.set('n', '<C-s>', '<CMD>w<CR>', { noremap = true, silent = true, desc
 -- Move chunks of text
 vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set('v', '<A-h>', '<gv', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-l>', '>gv', { noremap = true, silent = true })
 -- vim: ts=2 sts=2 sw=2 et

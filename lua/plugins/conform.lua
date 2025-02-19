@@ -24,7 +24,7 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'black' },
+        python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
         css = { 'prettierd', 'prettier', stop_after_first = true },
         json = { 'prettierd', 'prettier', stop_after_first = true },
         -- You can use 'stop_after_first' to run the first available formatter from the list
@@ -35,6 +35,7 @@ return {
         html = { 'prettierd', 'prettier', stop_after_first = true },
         cpp = { 'clang-format' },
         proto = { 'buf' },
+        markdown = { 'markdownlint', 'prettierd', 'prettier', stop_after_first = true },
         ['_'] = { 'trim_whitespace' },
       },
     },
