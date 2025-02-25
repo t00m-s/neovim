@@ -79,4 +79,8 @@ vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv", { noremap = true, silent = t
 vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set('v', '<A-h>', '<gv', { noremap = true, silent = true })
 vim.keymap.set('v', '<A-l>', '>gv', { noremap = true, silent = true })
+
+-- Unsetting default LSP keymaps
+vim.cmd [[nnoremap <nowait> gr gr]]
+vim.keymap.del('i', '<C-S>')
 -- vim: ts=2 sts=2 sw=2 et
