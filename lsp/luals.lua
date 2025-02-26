@@ -1,21 +1,25 @@
 return {
-  -- Command and arguments to start the server.
   cmd = { 'lua-language-server' },
-  -- Filetypes to automatically attach to.
   filetypes = { 'lua' },
-  -- Sets the "root directory" to the parent directory of the file
-  root_markers = { '.git', vim.fn.stdpath 'config', '.luarc.json', '.luarc.jsonc' },
+  root_markers = {
+    'lua',
+    '.luarc.json',
+    '.luarc.jsonc',
+    '.luacheckrc',
+    '.stylua.toml',
+    'stylua.toml',
+  },
   settings = {
     Lua = {
-      runtime = {
-        version = 'LuaJIT',
+      hint = { enable = true },
+      runtime = { version = 'LuaJIT' },
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          vim.env.VIMRUNTIME,
+        },
       },
-    },
-    workspace = {
-      checkThirdParty = false,
-      library = {
-        vim.env.VIMRUNTIME,
-      },
+      completion = { callSnippet = 'Replace' },
     },
   },
 }

@@ -67,9 +67,6 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- Select all
 vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select all' })
 
--- Oil
-vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-
 -- Split management
 vim.keymap.set('n', '<leader>sv', '<CMD>vsp<CR>', { noremap = true, silent = true, desc = '[S]plit [V]ertical' })
 vim.keymap.set('n', '<leader>sh', '<CMD>sp<CR>', { noremap = true, silent = true, desc = '[S]plit [H]orizontal' })
@@ -79,8 +76,4 @@ vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv", { noremap = true, silent = t
 vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set('v', '<A-h>', '<gv', { noremap = true, silent = true })
 vim.keymap.set('v', '<A-l>', '>gv', { noremap = true, silent = true })
-
--- Unsetting default LSP keymaps
-vim.cmd [[nnoremap <nowait> gr gr]]
-vim.keymap.del('i', '<C-S>')
 -- vim: ts=2 sts=2 sw=2 et

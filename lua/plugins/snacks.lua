@@ -16,6 +16,7 @@ return {
     notifier = { enabled = true },
     quickfile = { enabled = true },
     terminal = { enabled = true },
+    explorer = { enabled = true, replace_netrw = true },
   },
   keys = {
     {
@@ -38,6 +39,13 @@ return {
         Snacks.lazygit.log()
       end,
       desc = '[G]it [L]og',
+    },
+    {
+      '<leader>pv',
+      function()
+        Snacks.picker.files { hidden = true }
+      end,
+      desc = '[P]roject [V]iew',
     },
   },
 }
