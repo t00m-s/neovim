@@ -1,10 +1,6 @@
 return {
   -- Main LSP Configuration
   'neovim/nvim-lspconfig',
-  dependencies = {
-    -- Useful status updates for LSP.
-    { 'j-hui/fidget.nvim', opts = {} },
-  },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
@@ -112,6 +108,14 @@ return {
               },
             },
             completion = { callSnippet = 'Replace' },
+          },
+        },
+      },
+      ruff = {
+        filetypes = { 'python' },
+        init_options = {
+          settings = {
+            lineLength = 100,
           },
         },
       },

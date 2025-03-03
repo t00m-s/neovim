@@ -3,6 +3,7 @@ return {
   dependencies = {
     'tpope/vim-repeat',
   },
+  event = 'VeryLazy',
   config = function()
     vim.keymap.set('n', 's', '<Plug>(leap-anywhere)')
     vim.keymap.set('x', 's', '<Plug>(leap)')

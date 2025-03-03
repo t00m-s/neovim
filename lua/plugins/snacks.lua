@@ -50,18 +50,18 @@ return {
       desc = '[S]earch [F]iles',
     },
     {
+      '<leader>sc',
+      function()
+        Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
+      end,
+      desc = '[S]earch NeoVim [C]onfig',
+    },
+    {
       '<leader>sgf',
       function()
         Snacks.picker.git_files()
       end,
       desc = '[S]earch [G]it [F]iles',
-    },
-    {
-      '<leader>pv',
-      function()
-        Snacks.explorer()
-      end,
-      desc = '[P]roject [V]iew',
     },
     {
       '<leader><leader>',
