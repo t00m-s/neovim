@@ -64,13 +64,6 @@ return {
       desc = '[S]earch [G]it [F]iles',
     },
     {
-      '<leader><leader>',
-      function()
-        Snacks.picker.smart()
-      end,
-      desc = '[S]earch [O]ld Files',
-    },
-    {
       '<leader>sw',
       function()
         Snacks.picker.grep()
@@ -146,13 +139,6 @@ return {
         Snacks.picker.lsp_declarations()
       end,
       desc = '[G]oto [D]eclaration',
-    },
-    {
-      'K',
-      function()
-        vim.lsp.buf.hover()
-      end,
-      desc = 'Hover Documentation',
     },
     {
       '<C-k>',
