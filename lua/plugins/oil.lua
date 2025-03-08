@@ -2,8 +2,8 @@ return {
   'stevearc/oil.nvim',
   ---@module 'oil'
   -- Optional dependencies
-  dependencies = { { 'echasnovski/mini.icons', opts = {} } },
-  lazy = false,
+  dependencies = { { 'echasnovski/mini.icons', opts = {}, lazy = true } },
+  event = 'VeryLazy',
   config = function()
     ---@type oil.SetupOpts
     local opts = {

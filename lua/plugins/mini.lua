@@ -1,6 +1,7 @@
 return {
   'echasnovski/mini.nvim',
   version = '*',
+  event = 'VeryLazy',
   config = function()
     -- Better Around/Inside textobjects
     --
@@ -19,5 +20,6 @@ return {
     require('mini.statusline').setup()
     require('mini.jump').setup()
     require('mini.pairs').setup()
+    require('mini.icons').setup()
   end,
 }

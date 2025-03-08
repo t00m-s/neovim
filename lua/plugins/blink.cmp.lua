@@ -1,6 +1,6 @@
 return {
   'saghen/blink.cmp',
-  event = 'VimEnter',
+  event = 'VeryLazy',
   -- optional: provides snippets for the snippet source
   dependencies = 'rafamadriz/friendly-snippets',
 

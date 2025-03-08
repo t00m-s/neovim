@@ -1,7 +1,7 @@
 return {
   'catppuccin/nvim',
   name = 'catppuccin',
-  event = 'VimEnter',
+  event = 'VeryLazy',
   config = function()
     vim.cmd.colorscheme 'catppuccin'
   end,
