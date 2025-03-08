@@ -1,11 +1,11 @@
 return {
   'stevearc/oil.nvim',
   ---@module 'oil'
-  ---@type oil.SetupOpts
   -- Optional dependencies
   dependencies = { { 'echasnovski/mini.icons', opts = {} } },
   lazy = false,
   config = function()
+    ---@type oil.SetupOpts
     local opts = {
       columns = {
         'icon',
@@ -14,6 +14,9 @@ return {
       },
       watch_for_changes = true,
       use_default_keymaps = false,
+      keymaps = {
+        ['<CR>'] = 'actions.select',
+      },
       view_options = { show_hidden = true },
     }
     require('oil').setup(opts)
