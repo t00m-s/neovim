@@ -1,9 +1,8 @@
 return {
   'stevearc/oil.nvim',
   ---@module 'oil'
-  -- Optional dependencies
-  dependencies = { { 'echasnovski/mini.icons', opts = {}, lazy = true } },
-  event = 'VeryLazy',
+  dependencies = { 'echasnovski/mini.icons' },
+  event = 'VimEnter',
   config = function()
     ---@type oil.SetupOpts
     local opts = {
@@ -18,8 +17,14 @@ return {
         ['<CR>'] = 'actions.select',
       },
       view_options = { show_hidden = true },
+      default_file_explorer = true,
     }
     require('oil').setup(opts)
-    vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = '[P]roject [V]iew' })
+    vim.keymap.set(
+      'n',
+      '<leader>pv',
+      '<CMD>Oil<CR>',
+      { desc = '[P]roject [V]iew' }
+    )
   end,
 }

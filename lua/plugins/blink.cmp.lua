@@ -1,6 +1,6 @@
 return {
   'saghen/blink.cmp',
-  event = 'VeryLazy',
+  event = 'InsertEnter',
   -- optional: provides snippets for the snippet source
   dependencies = 'rafamadriz/friendly-snippets',
 
@@ -34,7 +34,8 @@ return {
             kind_icon = {
               ellipsis = false,
               text = function(ctx)
-                local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
+                local kind_icon, _, _ =
+                  require('mini.icons').get('lsp', ctx.kind)
                 return kind_icon
               end,
               -- Optionally, you may also use the highlights from mini.icons

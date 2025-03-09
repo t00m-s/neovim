@@ -1,7 +1,7 @@
 return {
   'echasnovski/mini.nvim',
   version = '*',
-  event = 'VeryLazy',
+  event = 'BufReadPre',
   config = function()
     -- Better Around/Inside textobjects
     --

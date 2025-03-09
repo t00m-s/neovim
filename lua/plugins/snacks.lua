@@ -1,6 +1,5 @@
 return {
   'folke/snacks.nvim',
-  priority = 1000,
   lazy = false,
   dependencies = { 'echasnovski/mini.icons' },
   ---@type snacks.Config
@@ -17,8 +16,6 @@ return {
     notifier = { enabled = true },
     quickfile = { enabled = true },
     terminal = { enabled = true },
-    explorer = { enabled = true },
-    picker = { enabled = true },
   },
   keys = {
     {
