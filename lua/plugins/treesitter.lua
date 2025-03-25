@@ -4,6 +4,7 @@ return {
     'nvim-treesitter/nvim-treesitter-context',
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
+  event = { 'VeryLazy' },
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs', -- Sets main module to use for opts
   -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -130,8 +131,6 @@ return {
     vim.keymap.set('n', '[c', function()
       require('treesitter-context').go_to_context()
     end, { desc = 'Jump to context (upwards)' })
-
-    -- Additional TreeSitter related keymaps
   end,
 }
 -- vim: ts=2 sts=2 sw=2 et

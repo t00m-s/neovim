@@ -18,11 +18,11 @@ return {
       desc = '[S]earch NeoVim [C]onfig',
     },
     {
-      '<leader>sgf',
+      '<leader>sg',
       function()
         require('fzf-lua').git_files()
       end,
-      desc = '[S]earch [G]it [F]iles',
+      desc = '[S]earch [G]it',
     },
     {
       '<leader>sw',
@@ -45,7 +45,20 @@ return {
       end,
       desc = '[C]olor [S]chemes',
     },
-    -- LSP related keybindings (converted from the first block)
+    {
+      '<leader>b',
+      function()
+        require('fzf-lua').buffers()
+      end,
+      desc = '[B]uffers',
+    },
+    {
+      '<leader><leader>',
+      function()
+        require('fzf-lua').oldfiles()
+      end,
+      desc = 'Recent files',
+    },
     {
       '<leader>gd',
       function()
@@ -101,13 +114,6 @@ return {
         require('fzf-lua').lsp_code_actions()
       end,
       desc = 'LSP: [C]ode [A]ctions',
-    },
-    {
-      '<C-k>',
-      function()
-        vim.lsp.buf.signature_help()
-      end,
-      desc = 'LSP: Signature Help',
     },
   },
 }

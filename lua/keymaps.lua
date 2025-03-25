@@ -6,7 +6,12 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>qf', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uick[F]ix list' })
+vim.keymap.set(
+  'n',
+  '<leader>qf',
+  vim.diagnostic.setloclist,
+  { desc = 'Open diagnostic [Q]uick[F]ix list' }
+)
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
@@ -71,15 +76,47 @@ vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select all' })
 vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
 -- Split management
-vim.keymap.set('n', '<leader>sv', '<CMD>vsp<CR>', { noremap = true, silent = true, desc = '[S]plit [V]ertical' })
-vim.keymap.set('n', '<leader>sh', '<CMD>sp<CR>', { noremap = true, silent = true, desc = '[S]plit [H]orizontal' })
+vim.keymap.set(
+  'n',
+  '<leader>sv',
+  '<CMD>vsp<CR>',
+  { noremap = true, silent = true, desc = '[S]plit [V]ertical' }
+)
+vim.keymap.set(
+  'n',
+  '<leader>sh',
+  '<CMD>sp<CR>',
+  { noremap = true, silent = true, desc = '[S]plit [H]orizontal' }
+)
 
 -- Move chunks of text
 vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set('v', '<A-h>', '<gv', { noremap = true, silent = true })
 vim.keymap.set('v', '<A-l>', '>gv', { noremap = true, silent = true })
-
 -- Unsetting default LSP keymaps
 vim.cmd [[nnoremap <nowait> gr gr]]
+
+-- Switching buffers in a easy way
+vim.keymap.set('n', '<S-l>', ':bnext<CR>', { noremap = true, silent = true, desc = 'Next buffer' })
+vim.keymap.set(
+  'n',
+  '<S-h>',
+  ':bprevious<CR>',
+  { noremap = true, silent = true, desc = 'Previous buffer' }
+)
+
+-- Delete buffer
+vim.keymap.set(
+  'n',
+  '<leader>bd',
+  ':bdelete<CR>',
+  { noremap = true, silent = true, desc = 'Delete buffer' }
+)
+
+-- Resize windows with arrow keys
+vim.keymap.set('n', '<C-Up>', ':resize +2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-Down>', ':resize -2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true })
 -- vim: ts=2 sts=2 sw=2 et

@@ -21,19 +21,19 @@ return {
       }
     end,
     formatters_by_ft = {
-      lua = { 'stylua' },
-      -- Conform can also run multiple formatters sequentially
-      python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
+      lua = { 'stylua', 'prettierd', 'prettier', stop_after_first = true },
+      python = { 'ruff_format', 'ruff_organize_imports' },
       css = { 'prettierd', 'prettier', stop_after_first = true },
       json = { 'prettierd', 'prettier', stop_after_first = true },
-      -- You can use 'stop_after_first' to run the first available formatter from the list
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
+      vue = { 'prettierd', 'prettier', stop_after_first = true },
       html = { 'prettierd', 'prettier', stop_after_first = true },
-      cpp = { 'clang-format' },
-      proto = { 'buf' },
+      cpp = { 'clang-format', 'prettierd', 'prettier', stop_after_first = true },
+      proto = { 'buf', 'prettierd', 'prettier', stop_after_first = true },
+      sh = { 'shfmt', 'prettierd', 'prettier', stop_after_first = true },
       markdown = { 'markdownlint', 'prettierd', 'prettier', stop_after_first = true },
       ['_'] = { 'trim_whitespace' },
     },

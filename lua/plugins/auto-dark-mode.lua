@@ -1,5 +1,5 @@
 return {
   'f-person/auto-dark-mode.nvim',
   opts = {},
-  lazy = true,
+  event = 'VeryLazy',
 }
