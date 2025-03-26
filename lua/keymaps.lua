@@ -114,7 +114,7 @@ vim.keymap.set(
 -- Delete buffer
 vim.keymap.set(
   'n',
-  'bd',
+  '<leader>bd',
   '<CMD>bdelete<CR>',
   { noremap = true, silent = true, desc = '[B]uffer [D]elete' }
 )
