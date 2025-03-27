@@ -83,4 +83,6 @@ vim.o.hidden = true
 -- Highlights search while typing
 vim.o.hlsearch = true
 vim.o.incsearch = true
+
+vim.o.winborder = 'rounded'
 -- vim: ts=2 sts=2 sw=2 et
