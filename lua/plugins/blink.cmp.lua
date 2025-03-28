@@ -1,6 +1,6 @@
 return {
   'saghen/blink.cmp',
-  event = 'InsertEnter',
+  event = 'VeryLazy',
   -- optional: provides snippets for the snippet source
   dependencies = 'rafamadriz/friendly-snippets',
 
@@ -15,7 +15,6 @@ return {
     -- See the full "keymap" documentation for information on defining your own keymap.
     keymap = {
       preset = 'none',
-
       ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<C-e>'] = { 'hide', 'fallback' },
 
