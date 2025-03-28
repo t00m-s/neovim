@@ -85,4 +85,5 @@ vim.o.hlsearch = true
 vim.o.incsearch = true
 
 vim.o.winborder = 'rounded'
+vim.o.confirm = true
 -- vim: ts=2 sts=2 sw=2 et

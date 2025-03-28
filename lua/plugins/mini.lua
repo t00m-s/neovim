@@ -17,7 +17,7 @@ return {
     -- - sd'   - [S]urround [D]elete [']quotes
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
-    require('mini.statusline').setup()
+    require('mini.statusline').setup { use_icons = vim.g.have_nerd_font }
     require('mini.jump').setup()
     require('mini.pairs').setup()
     require('mini.icons').setup()
