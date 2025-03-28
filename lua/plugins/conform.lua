@@ -35,6 +35,7 @@ return {
       proto = { 'buf', 'prettierd', 'prettier', stop_after_first = true },
       sh = { 'shfmt', 'prettierd', 'prettier', stop_after_first = true },
       markdown = { 'markdownlint', 'prettierd', 'prettier', stop_after_first = true },
+      go = { 'gofmt', lsp_fallback = true },
       ['_'] = { 'trim_whitespace' },
     },
   },

@@ -138,6 +138,7 @@ return {
         filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto', 'hpp' },
       },
       bashls = {},
+      gopls = {},
     }
     for server_name, server_config in pairs(servers) do
       server_config.capabilites = require('blink.cmp').get_lsp_capabilities(server_config)

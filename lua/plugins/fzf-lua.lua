@@ -6,7 +6,12 @@ return {
     {
       '<leader>sf',
       function()
-        require('fzf-lua').files()
+        local is_git_project = vim.fn.systemlist('git rev-parse --is-inside-work-tree')[1] == true
+        if is_git_project then
+          require('fzf-lua').git_files()
+        else
+          require('fzf-lua').files()
+        end
       end,
       desc = '[S]earch [F]iles',
     },
@@ -16,13 +21,6 @@ return {
         require('fzf-lua').files { cwd = vim.fn.stdpath 'config' }
       end,
       desc = '[S]earch NeoVim [C]onfig',
-    },
-    {
-      '<leader>sg',
-      function()
-        require('fzf-lua').git_files()
-      end,
-      desc = '[S]earch [G]it',
     },
     {
       '<leader>sw',
