@@ -20,11 +20,6 @@ return {
       default_file_explorer = true,
     }
     require('oil').setup(opts)
-    vim.keymap.set(
-      'n',
-      '<leader>pv',
-      '<CMD>Oil<CR>',
-      { desc = '[P]roject [V]iew' }
-    )
+    vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = '[P]roject [V]iew' })
   end,
 }

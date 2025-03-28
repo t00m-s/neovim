@@ -72,9 +72,6 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- Select all
 vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select all' })
 
--- Oil
-vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-
 -- Split management
 vim.keymap.set(
   'n',
