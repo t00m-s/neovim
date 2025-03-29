@@ -1,10 +1,3 @@
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'markdown',
-  callback = function()
-    vim.opt.conceallevel = 2
-    vim.opt.concealcursor = 'nc'
-  end,
-})
 return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
