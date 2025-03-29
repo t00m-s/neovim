@@ -95,6 +95,7 @@ return {
       },
       bashls = {},
       gopls = {},
+      marksman = {},
     }
     local blink_capabilities = require('blink.cmp').get_lsp_capabilities()
     for name, config in pairs(servers) do
