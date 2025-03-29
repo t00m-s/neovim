@@ -97,9 +97,9 @@ return {
       gopls = {},
     }
     local blink_capabilities = require('blink.cmp').get_lsp_capabilities()
-    for server_name, server_config in pairs(servers) do
-      server_config.capabilites = blink_capabilities
-      require('lspconfig')[server_name].setup(server_config)
+    for name, config in pairs(servers) do
+      config.capabilites = blink_capabilities
+      require('lspconfig')[name].setup { capabilities = blink_capabilities }
     end
   end,
 }
