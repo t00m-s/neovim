@@ -1,5 +1,8 @@
+vim.g.maplocalleader = ' '
+vim.g.mapleader = ' '
 -- [[ Setting options ]]
 -- See `:help vim.opt`
+vim.g.have_nerd_font = true
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.tabstop = 4
@@ -113,12 +116,4 @@ vim.diagnostic.config {
     end,
   },
 }
--- Better render markdown files
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'markdown',
-  callback = function()
-    vim.o.conceallevel = 2
-    vim.o.concealcursor = 'nc'
-  end,
-})
 -- vim: ts=2 sts=2 sw=2 et
