@@ -91,7 +91,7 @@ return {
         },
       },
       clangd = {
-        filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto', 'hpp' },
+        filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'hpp' },
       },
       bashls = {},
       gopls = {},

@@ -2,7 +2,7 @@ return {
   'folke/snacks.nvim',
   lazy = false,
   priority = 1000,
-  dependencies = { 'echasnovski/mini.icons' },
+  dependencies = { 'echasnovski/mini.nvim' },
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
