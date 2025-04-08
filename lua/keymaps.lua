@@ -1,5 +1,4 @@
 -- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -21,9 +20,6 @@ vim.keymap.set('n', '<right>', '<CMD>echo "Use l to move!!"<CR>')
 vim.keymap.set('n', '<up>', '<CMD>echo "Use k to move!!"<CR>')
 vim.keymap.set('n', '<down>', '<CMD>echo "Use j to move!!"<CR>')
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
 --  See `:help wincmd` for a list of all window commands
 
 -- X deletion does not save to register
@@ -55,27 +51,8 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = '[S]plit [H]orizontal' }
 )
 
--- Move chunks of text
-vim.keymap.set('v', '<A-j>', "<CMD>move '>+1<CR>gv=gv", { noremap = true, silent = true })
-vim.keymap.set('v', '<A-k>', "<CMD>move '<-2<CR>gv=gv", { noremap = true, silent = true })
-vim.keymap.set('v', '<A-h>', '<gv', { noremap = true, silent = true })
-vim.keymap.set('v', '<A-l>', '>gv', { noremap = true, silent = true })
 -- Unsetting default LSP keymaps
 vim.cmd [[nnoremap <nowait> gr gr]]
-
--- Switching buffers in a easy way
-vim.keymap.set(
-  'n',
-  '<S-l>',
-  '<CMD>bnext<CR>',
-  { noremap = true, silent = true, desc = 'Next buffer' }
-)
-vim.keymap.set(
-  'n',
-  '<S-h>',
-  '<CMD>bprevious<CR>',
-  { noremap = true, silent = true, desc = 'Previous buffer' }
-)
 
 -- Delete buffer
 vim.keymap.set(
@@ -84,10 +61,4 @@ vim.keymap.set(
   '<CMD>bdelete<CR>',
   { noremap = true, silent = true, desc = '[B]uffer [D]elete' }
 )
-
--- Resize windows with arrow keys
-vim.keymap.set('n', '<C-Up>', '<CMD>resize +2<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-Down>', '<CMD>resize -2<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-Left>', '<CMD>vertical resize -2<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-Right>', '<CMD>vertical resize +2<CR>', { noremap = true, silent = true })
 -- vim: ts=2 sts=2 sw=2 et
