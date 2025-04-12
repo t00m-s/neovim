@@ -3,6 +3,7 @@ return { -- Linting
   event = { 'BufReadPre', 'BufNewFile' },
   config = function()
     local lint = require 'lint'
+    local show_lint_virtual_text = true
     lint.linters_by_ft = {
       text = { 'vale' },
       markdown = { 'vale' },
@@ -18,5 +19,11 @@ return { -- Linting
         end
       end,
     })
+    vim.keymap.set('n', '<leader>tl', function()
+      vim.diagnostic.config {
+        virtual_text = not show_lint_virtual_text,
+        underline = not show_lint_virtual_text,
+      }
+    end, { desc = '[T]oggle [L]inting' })
   end,
 }
