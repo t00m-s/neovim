@@ -61,4 +61,17 @@ vim.keymap.set(
   '<CMD>bdelete<CR>',
   { noremap = true, silent = true, desc = '[B]uffer [D]elete' }
 )
+
+vim.keymap.set(
+  'n',
+  '<S-h>',
+  '<CMD>bprevious<CR>',
+  { noremap = true, silent = true, desc = 'Left buffer' }
+)
+vim.keymap.set(
+  'n',
+  '<S-l>',
+  '<CMD>bnext<CR>',
+  { noremap = true, silent = true, desc = 'Right buffer' }
+)
 -- vim: ts=2 sts=2 sw=2 et
