@@ -51,6 +51,7 @@ return {
         end
       end,
     })
+    -- TODO: migrate to 0.11 lsp since now is supported here.
     local servers = {
       lua_ls = {
         cmd = { 'lua-language-server' },
