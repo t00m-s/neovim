@@ -29,13 +29,11 @@ vim.api.nvim_create_autocmd('InsertLeave', {
   end,
 })
 
--- Create a minimal LSP status notification system
-local lsp_notify = vim.api.nvim_create_augroup('LspNotify', { clear = true })
+-- Creates a minimal LSP status notification system
+local lsp_notify = vim.api.nvim_create_augroup('LspNotifications', { clear = true })
 
--- Track active clients
 local active_clients = {}
 
--- When an LSP attaches
 vim.api.nvim_create_autocmd('LspAttach', {
   group = lsp_notify,
   callback = function(args)
@@ -45,16 +43,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
       active_clients[client_id] = client.name
       vim.notify('LSP started: ' .. client.name, vim.log.levels.INFO)
     end
-  end,
-})
-
--- When an LSP detaches
-vim.api.nvim_create_autocmd('LspDetach', {
-  group = lsp_notify,
-  callback = function(args)
-    local client_id = args.data.client_id
-    local client_name = active_clients[client_id] or 'Unknown'
-    active_clients[client_id] = nil
-    vim.notify('LSP stopped: ' .. client_name, vim.log.levels.INFO)
   end,
 })
