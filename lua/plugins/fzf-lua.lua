@@ -1,6 +1,6 @@
 return {
   'ibhagwan/fzf-lua',
-  dependencies = { 'echasnovski/mini.icons' },
+  dependencies = { 'echasnovski/mini.nvim' },
   event = { 'VeryLazy' },
   opts = {
     oldfiles = { include_current_session = true },
