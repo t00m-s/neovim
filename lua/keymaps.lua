@@ -74,4 +74,26 @@ vim.keymap.set(
   '<CMD>bnext<CR>',
   { noremap = true, silent = true, desc = 'Right buffer' }
 )
+
+-- Faster buffer navigation
+vim.keymap.set('n', '<Tab>', '<CMD>bnext<CR>', { silent = true })
+vim.keymap.set('n', '<S-Tab>', '<CMD>bprevious<CR>', { silent = true })
+
+-- Center view when jumping between search results
+vim.keymap.set('n', 'n', 'nzzzv', { silent = true })
+vim.keymap.set('n', 'N', 'Nzzzv', { silent = true })
+
+-- Keep cursor centered when joining lines
+vim.keymap.set('n', 'J', 'mzJ`z', { silent = true })
+
+-- Keep cursor position when using page up/down
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+vim.keymap.set('i', '<C-s>', '<ESC><CMD>w<CR>i', { desc = 'Save file' })
+
+-- Fix typo for :wq and :w
+vim.cmd 'command! W w'
+vim.cmd 'command! Wq wq'
+vim.cmd 'command! WQ wq'
 -- vim: ts=2 sts=2 sw=2 et
