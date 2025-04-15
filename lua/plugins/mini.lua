@@ -18,6 +18,10 @@ return {
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
     require('mini.statusline').setup { use_icons = vim.g.have_nerd_font }
+    ---@diagnostic disable-next-line: duplicate-set-field
+    require('mini.statusline').section_location = function()
+      return '%2l:%-2v'
+    end
     require('mini.jump').setup()
     require('mini.pairs').setup()
     require('mini.icons').setup()
