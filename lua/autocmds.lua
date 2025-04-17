@@ -39,8 +39,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local client_id = args.data.client_id
     local client = vim.lsp.get_client_by_id(client_id)
-    if client then
-      active_clients[client_id] = client.name
+    if client and not active_clients[client.name] then
+      active_clients[client_id] = true
       vim.notify('LSP started: ' .. client.name, vim.log.levels.INFO)
     end
   end,
