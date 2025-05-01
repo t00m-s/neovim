@@ -51,65 +51,6 @@ return {
         end
       end,
     })
-    -- TODO: migrate to 0.11 lsp since now is supported here.
-    local servers = {
-      lua_ls = {
-        cmd = { 'lua-language-server' },
-        filetypes = { 'lua' },
-        root_markers = {
-          'lua',
-          '.luarc.json',
-          '.luarc.jsonc',
-          '.luacheckrc',
-          '.stylua.toml',
-          'stylua.toml',
-        },
-        settings = {
-          Lua = {
-            hint = { enable = true },
-            runtime = { version = 'LuaJIT' },
-            workspace = {
-              checkThirdParty = false,
-              library = {
-                vim.env.VIMRUNTIME,
-              },
-            },
-            completion = { callSnippet = 'Replace' },
-          },
-        },
-      },
-      ruff = {
-        filetypes = { 'python' },
-        init_options = {
-          settings = {
-            lineLength = 80,
-          },
-        },
-      },
-      basedpyright = {
-        settings = {
-          basedpyright = {
-            typeCheckingMode = 'standard',
-            disableOrganizeImports = true, -- Using Ruff
-          },
-          python = {
-            analysis = {
-              ignore = { '*' }, -- Using Ruff
-            },
-          },
-        },
-      },
-      clangd = {
-        filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'hpp' },
-      },
-      bashls = {},
-      gopls = {},
-      marksman = {},
-    }
-    local blink_capabilities = require('blink.cmp').get_lsp_capabilities()
-    for name, config in pairs(servers) do
-      config.capabilites = blink_capabilities
-      require('lspconfig')[name].setup { capabilities = blink_capabilities }
-    end
+    vim.lsp.config('*', { capabilities = require('blink.cmp').get_lsp_capabilities() })
   end,
 }
