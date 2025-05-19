@@ -3,11 +3,11 @@ return {
   settings = {
     basedpyright = {
       typeCheckingMode = 'standard',
-      disableOrganizeImports = true, -- Using Ruff
+      disableOrganizeImports = true,
     },
     python = {
       analysis = {
-        ignore = { '*' }, -- Using Ruff
+        ignore = { '*' },
       },
     },
   },

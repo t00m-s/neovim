@@ -1,6 +1,6 @@
 return {
   'saghen/blink.cmp',
-  event = 'VeryLazy',
+  event = 'VimEnter',
   -- optional: provides snippets for the snippet source
   dependencies = 'rafamadriz/friendly-snippets',
 
@@ -40,9 +40,7 @@ return {
     },
     completion = {
       menu = {
-        auto_show = function(ctx)
-          return ctx.mode ~= 'cmdline'
-        end,
+        auto_show = function(ctx) return ctx.mode ~= 'cmdline' end,
         draw = {
           components = {
             kind_icon = {
