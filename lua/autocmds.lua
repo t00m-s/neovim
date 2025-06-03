@@ -10,6 +10,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.highlight.on_yank() end,
 })
 
+vim.api.nvim_create_autocmd('CursorHold', {
+  callback = function() vim.diagnostic.open_float(nil, { focusable = false, source = 'if_many' }) end,
+})
+
 -- Creates a minimal LSP status notification system
 local lsp_notify = vim.api.nvim_create_augroup('LspNotifications', { clear = true })
 
@@ -21,7 +25,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local client_id = args.data.client_id
     local client = vim.lsp.get_client_by_id(client_id)
     if client and not active_clients[client.name] then
-      active_clients[client_id] = true
+      active_clients[client.name] = true
       vim.notify('LSP started: ' .. client.name, vim.log.levels.INFO)
     end
   end,
