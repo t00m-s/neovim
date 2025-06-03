@@ -1,6 +1,6 @@
 return {
   'saghen/blink.cmp',
-  event = 'VimEnter',
+  event = 'VeryLazy',
   -- optional: provides snippets for the snippet source
   dependencies = 'rafamadriz/friendly-snippets',
 
@@ -59,16 +59,21 @@ return {
         },
       },
     },
-    -- Default list of enabled providers defined so that you can extend it
-    -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+      per_filetype = {
+        org = { 'orgmode' },
+      },
       providers = {
         lazydev = {
           name = 'LazyDev',
           module = 'lazydev.integrations.blink',
-          -- make lazydev completions top priority (see `:h blink.cmp`)
           score_offset = 100,
+        },
+        orgmode = {
+          name = 'Orgmode',
+          module = 'orgmode.org.autocompletion.blink',
+          fallbacks = { 'buffer' },
         },
         buffer = { min_keyword_length = 3, max_items = 5 },
       },
