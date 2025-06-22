@@ -12,6 +12,7 @@ return {
       'typescript',
       'typescriptreact',
       'vue',
+      'mjs',
     },
     settings = {
       tsserver_plugins = {
@@ -25,5 +26,6 @@ return {
     'typescript',
     'typescriptreact',
     'vue',
+    'mjs',
   },
 }
