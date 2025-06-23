@@ -10,10 +10,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.highlight.on_yank() end,
 })
 
-vim.api.nvim_create_autocmd('CursorHold', {
-  callback = function() vim.diagnostic.open_float(nil, { focusable = false, source = 'if_many' }) end,
-})
-
 -- Creates a minimal LSP status notification system
 local lsp_notify = vim.api.nvim_create_augroup('LspNotifications', { clear = true })
 
