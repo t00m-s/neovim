@@ -21,9 +21,7 @@ return {
   keys = {
     {
       '<leader>pv',
-      function()
-        require('oil').open()
-      end,
+      function() require('oil').toggle_float() end,
       desc = '[P]roject [V]iew',
     },
   },
