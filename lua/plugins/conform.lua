@@ -31,6 +31,7 @@ return {
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
       vue = { 'prettierd', 'prettier', stop_after_first = true },
       html = { 'prettierd', 'prettier', stop_after_first = true },
+      c = { 'clang-format', 'prettierd', 'prettier', stop_after_first = true },
       cpp = { 'clang-format', 'prettierd', 'prettier', stop_after_first = true },
       proto = { 'buf', 'prettierd', 'prettier', stop_after_first = true },
       sh = { 'shfmt', 'prettierd', 'prettier', stop_after_first = true },
