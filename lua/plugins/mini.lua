@@ -19,11 +19,12 @@ return {
     require('mini.surround').setup()
     require('mini.statusline').setup { use_icons = vim.g.have_nerd_font }
     ---@diagnostic disable-next-line: duplicate-set-field
-    require('mini.statusline').section_location = function()
-      return '%2l:%-2v'
-    end
+    require('mini.statusline').section_location = function() return '%2l:%-2v' end
+    -- f, F, t, T jumps on steroids
     require('mini.jump').setup()
+    -- autopairs {[(
     require('mini.pairs').setup()
+    require('mini.move').setup()
     require('mini.icons').setup()
     require('mini.tabline').setup()
   end,
