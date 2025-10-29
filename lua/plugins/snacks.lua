@@ -101,6 +101,11 @@ return {
       desc = 'LSP: [R]e[N]ame',
     },
     {
+      '<leader>sP',
+      function() Snacks.picker.projects() end,
+      desc = '[P]rojects',
+    },
+    {
       '<leader>ca',
       function() Snacks.picker.lsp_code_actions() end,
       desc = 'LSP: [C]ode [A]ctions',
