@@ -100,6 +100,5 @@ vim.diagnostic.config {
       [vim.diagnostic.severity.HINT] = '󰌶 ',
     },
   } or {},
-  virtual_lines = { current_line = true },
 }
 -- vim: ts=2 sts=2 sw=2 et
