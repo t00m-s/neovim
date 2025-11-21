@@ -119,7 +119,7 @@ return {
     -- Treesitter Context setup
     require('treesitter-context').setup {
       enable = true,
-      max_lines = 3,
+      max_lines = 2,
       min_window_height = 0,
       line_numbers = true,
       multiline_threshold = 20,
@@ -128,9 +128,12 @@ return {
     }
 
     -- Treesitter Context keymaps
-    vim.keymap.set('n', '[c', function()
-      require('treesitter-context').go_to_context()
-    end, { desc = 'Jump to context (upwards)' })
+    vim.keymap.set(
+      'n',
+      '[c',
+      function() require('treesitter-context').go_to_context(vim.v.count1) end,
+      { desc = 'Jump to context (upwards)' }
+    )
   end,
 }
 -- vim: ts=2 sts=2 sw=2 et

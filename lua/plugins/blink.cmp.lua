@@ -39,8 +39,10 @@ return {
       nerd_font_variant = 'mono',
     },
     completion = {
+      documentation = { window = { border = 'single' } },
       menu = {
         auto_show = function(ctx) return ctx.mode ~= 'cmdline' end,
+        border = 'single',
         draw = {
           components = {
             kind_icon = {
@@ -58,6 +60,7 @@ return {
           },
         },
       },
+      signature = { window = { border = 'single' } },
     },
     sources = {
       default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
@@ -73,7 +76,7 @@ return {
   },
 
   snippets = { preset = 'luasnip' },
-  fuzzy = { implementation = 'prefer_rust_with_warning' },
+  fuzzy = { implementation = 'prefer_rust_with_warning', sorts = { 'exact', 'score', 'sort_text' } },
   signature = { enabled = true },
   opts_extend = { 'sources.default' },
 }
