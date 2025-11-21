@@ -73,6 +73,7 @@ return {
     {
       '<leader>gr',
       function() Snacks.picker.lsp_references() end,
+      nowait = true,
       desc = 'LSP: [G]oto [R]eferences',
     },
     {
@@ -106,9 +107,9 @@ return {
       desc = '[P]rojects',
     },
     {
-      '<leader>ca',
-      function() Snacks.picker.lsp_code_actions() end,
-      desc = 'LSP: [C]ode [A]ctions',
+      '<leader>sU',
+      function() Snacks.picker.undo() end,
+      desc = '[S]earch [U]ndo',
     },
   },
 }
