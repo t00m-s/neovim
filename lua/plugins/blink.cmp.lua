@@ -60,7 +60,7 @@ return {
           },
         },
       },
-      signature = { window = { border = 'single' } },
+      -- signature = { window = { border = 'single' } },
     },
     sources = {
       default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },

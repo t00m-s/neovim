@@ -4,14 +4,6 @@
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<CMD>nohlsearch<CR>')
 
--- Diagnostic keymaps
-vim.keymap.set(
-  'n',
-  '<leader>qf',
-  vim.diagnostic.setloclist,
-  { desc = 'Open diagnostic [Q]uick[F]ix list' }
-)
-
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
@@ -75,10 +67,6 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = 'Right buffer' }
 )
 
--- Faster buffer navigation
-vim.keymap.set('n', '<Tab>', '<CMD>bnext<CR>', { silent = true })
-vim.keymap.set('n', '<S-Tab>', '<CMD>bprevious<CR>', { silent = true })
-
 -- Center view when jumping between search results
 vim.keymap.set('n', 'n', 'nzzzv', { silent = true })
 vim.keymap.set('n', 'N', 'Nzzzv', { silent = true })
@@ -96,4 +84,12 @@ vim.keymap.set('i', '<C-s>', '<ESC><CMD>w<CR>i', { desc = 'Save file' })
 vim.cmd 'command! W w'
 vim.cmd 'command! Wq wq'
 vim.cmd 'command! WQ wq'
+
+vim.keymap.set({ 'n', 'v' }, '<F11>', function()
+  if vim.g.neovide_fullscreen ~= true then
+    vim.g.neovide_fullscreen = true
+  else
+    vim.g.neovide_fullscreen = false
+  end
+end)
 -- vim: ts=2 sts=2 sw=2 et

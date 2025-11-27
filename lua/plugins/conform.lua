@@ -25,11 +25,10 @@ return {
       python = { 'ruff_format', 'ruff_organize_imports' },
       c = { 'clang-format' },
       cpp = { 'clang-format' },
-      proto = { 'buf' },
       sh = { 'shfmt' },
-      markdown = { 'markdownlint' },
       go = { 'gofmt' },
-      ['_'] = { 'prettierd', 'prettier', stop_after_first = true },
+      rust = { 'rustfmt' },
+      ['_'] = { 'prettier', stop_after_first = true },
     },
   },
 }
