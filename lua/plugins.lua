@@ -4,7 +4,7 @@ vim.pack.add {
   { src = 'https://github.com/nvim-lua/plenary.nvim' },
   { src = 'https://github.com/mason-org/mason.nvim' },
   { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '^1' },
-  { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter', build = 'TSUpdate' },
   { src = 'https://github.com/rcarriga/nvim-notify' },
   { src = 'https://github.com/folke/trouble.nvim' },
   { src = 'https://github.com/stevearc/conform.nvim' },
@@ -13,6 +13,7 @@ vim.pack.add {
   { src = 'https://github.com/craftzdog/solarized-osaka.nvim' },
   { src = 'https://github.com/ibhagwan/fzf-lua' },
   { src = 'https://github.com/nvim-lualine/lualine.nvim' },
+  { src = 'https://github.com/neovim/nvim-lspconfig' }, -- Optional, but saves work
 }
 -- UI/UX part
 vim.cmd [[colorscheme solarized-osaka]]
@@ -49,6 +50,8 @@ require('nvim-treesitter').install {
   'c',
   'diff',
   'html',
+  'latex',
+  'yaml',
   'lua',
   'luadoc',
   'markdown',
@@ -58,6 +61,7 @@ require('nvim-treesitter').install {
   'vimdoc',
   'rust',
   'javascript',
+  'python',
 }
 require('trouble').setup {
   warn_no_results = false,

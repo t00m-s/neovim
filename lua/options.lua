@@ -42,5 +42,5 @@ opt.titlestring = '%t'
 
 vim.cmd.filetype 'plugin indent on' -- Enable filetype detection, plugins, and indentation
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
-
+opt.runtimepath:append(vim.fn.stdpath 'data' .. '/site')
 -- vim: ts=2 sts=2 sw=2 et
