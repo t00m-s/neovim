@@ -6,6 +6,7 @@ opt.signcolumn = 'auto:2' -- Always show sign column
 opt.termguicolors = true -- Enable true colors
 opt.encoding = 'utf-8'
 opt.ignorecase = true -- Ignore case in search
+opt.smartcase = true
 opt.swapfile = false -- Disable swap files
 opt.autoindent = true -- Enable auto indentation
 opt.expandtab = true -- Use spaces instead of tabs
@@ -32,6 +33,13 @@ vim.g.have_nerd_font = true
 opt.breakindent = true
 opt.updatetime = 250
 opt.timeoutlen = 300
+opt.cmdheight = 0
+opt.linebreak = true
+opt.showmode = false
+opt.hidden = true
+opt.title = true
+opt.titlestring = '%t'
+
 vim.cmd.filetype 'plugin indent on' -- Enable filetype detection, plugins, and indentation
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
