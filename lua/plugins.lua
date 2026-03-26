@@ -12,9 +12,14 @@ vim.pack.add {
   { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' },
   { src = 'https://github.com/craftzdog/solarized-osaka.nvim' },
   { src = 'https://github.com/ibhagwan/fzf-lua' },
+  { src = 'https://github.com/nvim-lualine/lualine.nvim' },
 }
-
+-- UI/UX part
+vim.cmd [[colorscheme solarized-osaka]]
+vim.notify = require 'notify'
 require('mini.icons').setup {}
+
+-- LSP
 require('mason').setup {}
 require('blink.cmp').setup {
   keymap = { preset = 'enter' },
@@ -54,9 +59,6 @@ require('nvim-treesitter').install {
   'rust',
   'javascript',
 }
-
-vim.notify = require 'notify'
-
 require('trouble').setup {
   warn_no_results = false,
   modes = {
@@ -65,7 +67,6 @@ require('trouble').setup {
     },
   },
 }
-
 require('conform').setup {
   formatters_by_ft = {
     lua = { 'stylua' },
@@ -81,7 +82,7 @@ require('conform').setup {
     lsp_format = 'fallback',
   },
 }
-
+-- File manager
 require('oil').setup {
   columns = {
     'icon',
@@ -102,7 +103,7 @@ require('oil').setup {
 
 require('harpoon'):setup()
 
-vim.cmd [[colorscheme solarized-osaka]]
-
 require('fzf-lua').setup { 'fzf-native' }
 require('fzf-lua').register_ui_select()
+
+require('lualine').setup {}
