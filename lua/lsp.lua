@@ -1,10 +1,7 @@
 -- ~/.config/nvim/lua/lsp.lua
 vim.lsp.enable {
-  'bashls',
-  'gopls',
   'lua_ls',
-  'ts_ls',
-  'rust-analyzer',
+  'ruff',
 }
 
 vim.diagnostic.config {
