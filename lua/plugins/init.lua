@@ -1,0 +1,7 @@
+require 'plugins.visual'
+require 'plugins.blink'
+require 'plugins.oil'
+require 'plugins.coding'
+require 'plugins.treesitter'
+require 'plugins.fzf'
+require 'plugins.harpoon'

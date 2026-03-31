@@ -1,5 +1,2 @@
-require 'options'
-require 'keymaps'
+require 'config'
 require 'plugins'
-require 'autocmds'
-require 'lsp'

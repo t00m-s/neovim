@@ -1,0 +1,66 @@
+-- ~/.config/nvim/lua/plugins/coding.lua
+-- LSP
+vim.pack.add {
+  { src = 'https://github.com/mason-org/mason.nvim' },
+  { src = 'https://github.com/folke/trouble.nvim' },
+  { src = 'https://github.com/stevearc/conform.nvim' },
+  { src = 'https://github.com/neovim/nvim-lspconfig' }, -- Optional, but saves work
+  { src = 'https://github.com/folke/flash.nvim' },
+}
+require('mason').setup {}
+require('trouble').setup {
+  warn_no_results = false,
+  modes = {
+    lsp_base = {
+      params = { include_current = true },
+    },
+  },
+}
+require('conform').setup {
+  formatters_by_ft = {
+    lua = { 'stylua' },
+    python = { 'ruff_format', 'ruff_organize_imports' },
+    c = { 'clang-format' },
+    cpp = { 'clang-format' },
+    sh = { 'shfmt' },
+    go = { 'gofmt' },
+    rust = { 'rustfmt' },
+  },
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = 'fallback',
+  },
+}
+
+require('flash').setup {
+  modes = {
+    -- options used when flash is activated through
+    -- `f`, `F`, `t`, `T`, `;` and `,` motions
+    char = {
+      enabled = true,
+      -- show jump labels
+      jump_labels = true,
+    },
+  },
+}
+vim.lsp.enable {
+  'lua_ls',
+  'ruff',
+  'ts_ls',
+  'clangd',
+}
+
+vim.diagnostic.config {
+  virtual_text = true,
+  severity_sort = true,
+  float = { border = 'rounded', source = 'if_many' },
+  underline = { severity = vim.diagnostic.severity.ERROR },
+  signs = vim.g.have_nerd_font and {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '󰅚 ',
+      [vim.diagnostic.severity.WARN] = '󰀪 ',
+      [vim.diagnostic.severity.INFO] = '󰋽 ',
+      [vim.diagnostic.severity.HINT] = '󰌶 ',
+    },
+  } or {},
+}

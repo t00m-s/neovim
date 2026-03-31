@@ -34,6 +34,24 @@ keymap('n', 'N', 'Nzzzv', s)
 -- Keep cursor centered when joining lines
 keymap('n', 'J', 'mzJ`z', s)
 
+keymap('n', '<C-h>', '<C-w>h', { desc = 'Go to Left Window', remap = true })
+keymap('n', '<C-j>', '<C-w>j', { desc = 'Go to Lower Window', remap = true })
+keymap('n', '<C-k>', '<C-w>k', { desc = 'Go to Upper Window', remap = true })
+keymap('n', '<C-l>', '<C-w>l', { desc = 'Go to Right Window', remap = true })
+
+-- Move lines up/down
+keymap('n', '<A-j>', "<cmd>execute 'move .+' . v:count1<cr>==", { desc = 'Move Down' })
+keymap('n', '<A-k>', "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = 'Move Up' })
+keymap('i', '<A-j>', '<esc><cmd>m .+1<cr>==gi', { desc = 'Move Down' })
+keymap('i', '<A-k>', '<esc><cmd>m .-2<cr>==gi', { desc = 'Move Up' })
+keymap('v', '<A-j>', ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = 'Move Down' })
+keymap(
+  'v',
+  '<A-k>',
+  ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv",
+  { desc = 'Move Up' }
+)
+
 -- Plugin keymaps
 keymap('n', '<leader>qf', '<cmd>Trouble diagnostics toggle<CR>', opts)
 keymap('n', '<leader>pv', function() require('oil').toggle_float() end)
@@ -54,6 +72,23 @@ keymap('n', '<leader>sf', function()
   end
 end)
 
+keymap('n', '<leader>sc', function() require('fzf-lua').files { cwd = vim.fn.stdpath 'config' } end)
 keymap('n', '<leader><leader>', function() require('fzf-lua').history() end)
 keymap('n', '<leader>sw', function() require('fzf-lua').live_grep_native() end)
 keymap('n', '<leader>ut', function() require('fzf-lua').undotree() end)
+
+keymap({ 'n', 'x', 'o' }, 's', function() require('flash').jump() end, { desc = 'Flash' })
+keymap(
+  { 'n', 'x', 'o' },
+  'S',
+  function() require('flash').treesitter() end,
+  { desc = 'Flash Treesitter' }
+)
+keymap('o', 'r', function() require('flash').remote() end, { desc = 'Flash Remote' })
+keymap(
+  { 'x', 'o' },
+  'R',
+  function() require('flash').treesitter_search() end,
+  { desc = 'Flash Treesitter Search' }
+)
+keymap('c', '<c-s>', function() require('flash').toggle() end, { desc = 'Toggle Flash search' })

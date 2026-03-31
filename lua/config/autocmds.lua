@@ -6,7 +6,7 @@ local augroup = vim.api.nvim_create_augroup
 local highlight_group = augroup('YankHighlight', { clear = true })
 autocmd('TextYankPost', {
   pattern = '*',
-  callback = function() vim.highlight.on_yank { timeout = 150 } end,
+  callback = function() vim.hl.on_yank { timeout = 150 } end,
   group = highlight_group,
 })
 
@@ -18,23 +18,26 @@ local treesitter = augroup('Treesitter', { clear = true })
 
 -- Gets all installed parsers, so that treesitter does not start/crash on
 -- unintended filetypes
-local treesitter_installed_parsers = require('nvim-treesitter').get_installed()
-autocmd('FileType', {
-  group = treesitter,
-  nested = false,
-  pattern = treesitter_installed_parsers,
-  callback = function()
-    local ok = pcall(vim.treesitter.start)
-    if not ok then
-      vim.notify('Failed to start treesitter.', vim.log.levels.ERROR)
-      return
-    end
-    vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    vim.wo[0][0].foldmethod = 'expr'
-    vim.wo[0][0].foldlevel = 99
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-  end,
-})
+local ok, err = pcall(require, 'nvim-treesitter')
+if ok then
+  local treesitter_installed_parsers = require('nvim-treesitter').get_installed()
+  autocmd('FileType', {
+    group = treesitter,
+    nested = false,
+    pattern = treesitter_installed_parsers,
+    callback = function()
+      local ok = pcall(vim.treesitter.start)
+      if not ok then
+        vim.notify('Failed to start treesitter.', vim.log.levels.ERROR)
+        return
+      end
+      vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      vim.wo[0][0].foldmethod = 'expr'
+      vim.wo[0][0].foldlevel = 99
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end,
+  })
+end
 
 -- Notification system
 autocmd('LspAttach', {
@@ -49,4 +52,12 @@ autocmd('LspAttach', {
   end,
 })
 
-autocmd('PackChanged', { callback = function() require('nvim-treesitter').update() end })
+autocmd('PackChanged', {
+  callback = function()
+    local ok = pcall(vim.treesitter.start)
+    if not ok then
+      return
+    end
+    require('nvim-treesitter').update()
+  end,
+})

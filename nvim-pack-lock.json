@@ -9,6 +9,10 @@
       "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "flash.nvim": {
+      "rev": "fcea7ff883235d9024dc41e638f164a450c14ca2",
+      "src": "https://github.com/folke/flash.nvim"
+    },
     "fzf-lua": {
       "rev": "54669c347fe94d5be41322bd5526095f3e528713",
       "src": "https://github.com/ibhagwan/fzf-lua"
@@ -33,6 +37,10 @@
     "mini.icons": {
       "rev": "5b9076dae1bfbe47ba4a14bc8b967cde0ab5d77e",
       "src": "https://github.com/nvim-mini/mini.icons"
+    },
+    "nvim-lint": {
+      "rev": "4b03656c09c1561f89b6aa0665c15d292ba9499d",
+      "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
       "rev": "1a6d69206749a646ef28bfb39460610b14baff40",
