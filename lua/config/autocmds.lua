@@ -18,7 +18,7 @@ local treesitter = augroup('Treesitter', { clear = true })
 
 -- Gets all installed parsers, so that treesitter does not start/crash on
 -- unintended filetypes
-local ok, err = pcall(require, 'nvim-treesitter')
+local ok, _ = pcall(require, 'nvim-treesitter')
 if ok then
   local treesitter_installed_parsers = require('nvim-treesitter').get_installed()
   autocmd('FileType', {
@@ -26,7 +26,7 @@ if ok then
     nested = false,
     pattern = treesitter_installed_parsers,
     callback = function()
-      local ok = pcall(vim.treesitter.start)
+      ok = pcall(vim.treesitter.start)
       if not ok then
         vim.notify('Failed to start treesitter.', vim.log.levels.ERROR)
         return
@@ -49,12 +49,16 @@ autocmd('LspAttach', {
       active_clients[client.name] = true
       vim.notify('LSP started: ' .. client.name, vim.log.levels.INFO)
     end
+
+    if client and client.name == 'ruff' then
+      client.server_capabilities.hoverProvider = false
+    end
   end,
 })
 
 autocmd('PackChanged', {
   callback = function()
-    local ok = pcall(vim.treesitter.start)
+    ok = pcall(vim.treesitter.start)
     if not ok then
       return
     end
