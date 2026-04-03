@@ -1,3 +1,4 @@
+require 'plugins.snacks'
 require 'plugins.visual'
 require 'plugins.blink'
 require 'plugins.oil'

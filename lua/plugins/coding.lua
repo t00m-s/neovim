@@ -19,7 +19,7 @@ require('trouble').setup {
 require('conform').setup {
   formatters_by_ft = {
     lua = { 'stylua' },
-    python = { 'ruff_format', 'ruff_organize_imports' },
+    python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
     c = { 'clang-format' },
     cpp = { 'clang-format' },
     sh = { 'shfmt' },
@@ -45,9 +45,11 @@ require('flash').setup {
 }
 vim.lsp.enable {
   'lua_ls',
+  'basedpyright',
   'ruff',
   'ts_ls',
   'clangd',
+  'hyprls',
 }
 
 vim.diagnostic.config {
@@ -64,3 +66,26 @@ vim.diagnostic.config {
     },
   } or {},
 }
+
+local keymap = vim.keymap.set
+keymap('n', '<leader>qf', '<cmd>Trouble diagnostics toggle<CR>', opts)
+keymap('n', '<leader>a', function() require('harpoon'):list():add() end)
+keymap(
+  'n',
+  '<C-e>',
+  function() require('harpoon').ui:toggle_quick_menu(require('harpoon'):list()) end
+)
+keymap({ 'n', 'x', 'o' }, 's', function() require('flash').jump() end, { desc = 'Flash' })
+keymap(
+  { 'n', 'x', 'o' },
+  'S',
+  function() require('flash').treesitter() end,
+  { desc = 'Flash Treesitter' }
+)
+keymap('o', 'r', function() require('flash').remote() end, { desc = 'Flash Remote' })
+keymap(
+  { 'x', 'o' },
+  'R',
+  function() require('flash').treesitter_search() end,
+  { desc = 'Flash Treesitter Search' }
+)

@@ -18,3 +18,5 @@ require('oil').setup {
     signcolumn = 'yes:2',
   },
 }
+local keymap = vim.keymap.set
+keymap('n', '<leader>pv', function() require('oil').toggle_float() end)
