@@ -4,34 +4,34 @@ vim.pack.add {
     src = 'https://github.com/saghen/blink.cmp',
     version = vim.version.range '^1',
   },
+  { src = 'https://github.com/saghen/blink.compat' },
 }
 
--- Lazy load on first insert mode entry
-local group = vim.api.nvim_create_augroup('BlinkCmpLazyLoad', { clear = true })
+require('blink.cmp').setup {
+  keymap = {
+    preset = 'super-tab',
+    ['<Tab>'] = {
+      'select_next',
+      'snippet_forward',
+      'fallback',
+    },
+    ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
+  },
+  signature = { enabled = true },
+  appearance = {
+    nerd_font_variant = 'mono',
+  },
 
-vim.api.nvim_create_autocmd('InsertEnter', {
-  pattern = '*',
-  group = group,
-  once = true,
-  callback = function()
-    require('blink.cmp').setup {
-      keymap = { preset = 'super-tab' },
-      signature = { enabled = true },
-      appearance = {
-        nerd_font_variant = 'mono',
-      },
+  completion = {
+    documentation = { auto_show = false },
+  },
 
-      completion = {
-        documentation = { auto_show = false },
-      },
+  sources = {
+    default = { 'lsp', 'path', 'snippets', 'buffer', 'obsidian' },
+  },
 
-      sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
-      },
-
-      fuzzy = {
-        implementation = 'prefer_rust_with_warning',
-      },
-    }
-  end,
-})
+  obsidian = { name = 'obsidian', module = 'blink.compat.source' },
+  fuzzy = {
+    implementation = 'prefer_rust_with_warning',
+  },
+}
