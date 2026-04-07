@@ -4,7 +4,6 @@ vim.pack.add {
     src = 'https://github.com/saghen/blink.cmp',
     version = vim.version.range '^1',
   },
-  { src = 'https://github.com/saghen/blink.compat' },
 }
 
 require('blink.cmp').setup {
@@ -16,6 +15,17 @@ require('blink.cmp').setup {
       'fallback',
     },
     ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
+    ['<CR>'] = { 'accept', 'fallback' },
+    ['<C-1>'] = { function(cmp) cmp.accept { index = 1 } end },
+    ['<C-2>'] = { function(cmp) cmp.accept { index = 2 } end },
+    ['<C-3>'] = { function(cmp) cmp.accept { index = 3 } end },
+    ['<C-4>'] = { function(cmp) cmp.accept { index = 4 } end },
+    ['<C-5>'] = { function(cmp) cmp.accept { index = 5 } end },
+    ['<C-6>'] = { function(cmp) cmp.accept { index = 6 } end },
+    ['<C-7>'] = { function(cmp) cmp.accept { index = 7 } end },
+    ['<C-8>'] = { function(cmp) cmp.accept { index = 8 } end },
+    ['<C-9>'] = { function(cmp) cmp.accept { index = 9 } end },
+    ['<C-0>'] = { function(cmp) cmp.accept { index = 10 } end },
   },
   signature = { enabled = true },
   appearance = {
@@ -27,10 +37,9 @@ require('blink.cmp').setup {
   },
 
   sources = {
-    default = { 'lsp', 'path', 'snippets', 'buffer', 'obsidian' },
+    default = { 'lsp', 'path', 'snippets', 'buffer', 'obsidian', 'obsidian_new', 'obsidian_tags' },
   },
 
-  obsidian = { name = 'obsidian', module = 'blink.compat.source' },
   fuzzy = {
     implementation = 'prefer_rust_with_warning',
   },
