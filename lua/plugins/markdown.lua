@@ -8,6 +8,7 @@ vim.pack.add {
 }
 
 require('render-markdown').setup {
+  file_types = { 'markdown' },
   latex = { enabled = true },
   completions = {
     blink = true,
