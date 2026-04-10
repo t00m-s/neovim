@@ -43,3 +43,12 @@ require('obsidian').setup {
     path = '~/Zettelkasten/',
   } },
 }
+
+local keymap = vim.keymap.set
+keymap(
+  'n',
+  '<leader>ont',
+  '<CMD>Obsidian new_from_template<CR>',
+  { desc = '[O]bsidian [N]ew from [T]emplate' }
+)
+keymap('n', '<leader>ot', '<CMD>Obsidian template<CR>', { desc = '[O]bsidian apply [T]emplate' })
