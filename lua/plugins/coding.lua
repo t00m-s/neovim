@@ -7,6 +7,7 @@ vim.pack.add {
   { src = 'https://github.com/neovim/nvim-lspconfig' }, -- Optional, but saves work
   { src = 'https://github.com/folke/flash.nvim' },
   { src = 'https://github.com/lambdalisue/vim-suda' },
+  { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' },
 }
 require('mason').setup {}
 require('trouble').setup {
@@ -44,6 +45,9 @@ require('flash').setup {
     },
   },
 }
+
+require('harpoon'):setup()
+
 vim.lsp.enable {
   'lua_ls',
   'basedpyright',
@@ -69,7 +73,7 @@ vim.diagnostic.config {
 }
 
 local keymap = vim.keymap.set
-keymap('n', '<leader>qf', '<cmd>Trouble diagnostics toggle<CR>', opts)
+keymap('n', '<leader>qf', '<cmd>Trouble diagnostics toggle<CR>')
 keymap('n', '<leader>a', function() require('harpoon'):list():add() end)
 keymap(
   'n',
