@@ -10,3 +10,4 @@ vim.pack.add {
 vim.cmd [[colorscheme jb]]
 require('mini.icons').setup {}
 require('lualine').setup {}
+require('vim._core.ui2').enable {}
