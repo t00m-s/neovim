@@ -6,6 +6,7 @@ vim.pack.add {
   { src = 'https://github.com/stevearc/conform.nvim' },
   { src = 'https://github.com/neovim/nvim-lspconfig' }, -- Optional, but saves work
   { src = 'https://github.com/folke/flash.nvim' },
+  { src = 'https://github.com/lambdalisue/vim-suda' },
 }
 require('mason').setup {}
 require('trouble').setup {
