@@ -1,5 +1,4 @@
 -- ~/.config/nvim/config/utils.lua
-
 local function pack_clean()
   local active_plugins = {}
   local unused_plugins = {}
@@ -25,4 +24,5 @@ local function pack_clean()
   end
 end
 
-vim.keymap.set('n', '<leader>pc', pack_clean)
+vim.keymap.set('n', '<leader>pc', pack_clean, { desc = '[P]ack [C]lean' })
+vim.keymap.set('n', '<leader>pu', function() vim.pack.update() end, { desc = '[P]ack [U]pdate' })
