@@ -3,6 +3,8 @@
 vim.pack.add {
   { src = 'https://github.com/mason-org/mason.nvim' },
   { src = 'https://github.com/folke/trouble.nvim' },
+  { src = 'https://github.com/folke/lazydev.nvim' },
+  { src = 'https://github.com/folke/which-key.nvim' },
   { src = 'https://github.com/stevearc/conform.nvim' },
   { src = 'https://github.com/neovim/nvim-lspconfig' }, -- Optional, but saves work
   { src = 'https://github.com/folke/flash.nvim' },
@@ -47,6 +49,13 @@ require('flash').setup {
 }
 
 require('harpoon'):setup()
+require('lazydev').setup {
+  library = {
+    -- See the configuration section for more details
+    -- Load luvit types when the `vim.uv` word is found
+    { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+  },
+}
 
 vim.lsp.enable {
   'lua_ls',

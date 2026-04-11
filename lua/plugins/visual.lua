@@ -5,7 +5,6 @@ vim.pack.add {
   { src = 'https://github.com/nvim-lua/plenary.nvim' },
   { src = 'https://github.com/folke/tokyonight.nvim' },
 }
--- Statusbar - good if you don't want to use a plugin.
 vim.cmd [[colorscheme tokyonight]]
 require('mini.icons').setup {}
 require('vim._core.ui2').enable {}
