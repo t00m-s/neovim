@@ -10,9 +10,8 @@ autocmd('TextYankPost', {
   group = highlight_group,
 })
 
--- Creates a minimal LSP status notification system
-local lsp_notify = augroup('LspNotifications', { clear = true })
-local active_clients = {}
+-- LSP group
+local lsp = augroup('Lsp', { clear = true })
 -- Treesitter group for the autocmd
 local treesitter = augroup('Treesitter', { clear = true })
 
@@ -39,16 +38,12 @@ if ok then
   })
 end
 
--- Notification system
+-- LSP specific keybinds
 autocmd('LspAttach', {
-  group = lsp_notify,
+  group = lsp,
   callback = function(args)
     local client_id = args.data.client_id
     local client = vim.lsp.get_client_by_id(client_id)
-    if client and not active_clients[client.name] then
-      active_clients[client.name] = true
-      vim.notify('LSP started: ' .. client.name, vim.log.levels.INFO)
-    end
 
     if client and client.name == 'ruff' then
       client.server_capabilities.hoverProvider = false

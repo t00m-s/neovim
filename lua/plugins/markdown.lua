@@ -11,13 +11,12 @@ require('render-markdown').setup {
   file_types = { 'markdown' },
   latex = { enabled = true },
   completions = {
-    blink = true,
     lsp = { enabled = true },
   },
-} -- only mandatory if you want to set custom options
+}
 
 require('obsidian').setup {
-  ui = { enabled = false },
+  ui = { enable = false, enabled = false },
   frontmatter = {
     func = function(note)
       local out = {

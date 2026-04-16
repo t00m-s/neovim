@@ -11,6 +11,7 @@ vim.pack.add {
   { src = 'https://github.com/lambdalisue/vim-suda' },
   { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' },
 }
+
 require('mason').setup {}
 require('trouble').setup {
   warn_no_results = false,
@@ -20,6 +21,7 @@ require('trouble').setup {
     },
   },
 }
+
 require('conform').setup {
   formatters_by_ft = {
     lua = { 'stylua' },

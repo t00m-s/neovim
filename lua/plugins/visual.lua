@@ -5,7 +5,8 @@ vim.pack.add {
   { src = 'https://github.com/nvim-lua/plenary.nvim' },
   { src = 'https://github.com/folke/tokyonight.nvim' },
 }
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[colorscheme tokyonight-moon]]
+
 require('mini.icons').setup {}
 require('vim._core.ui2').enable {}
 

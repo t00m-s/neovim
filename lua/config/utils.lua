@@ -23,6 +23,6 @@ local function pack_clean()
     vim.pack.del(unused_plugins)
   end
 end
-
-vim.keymap.set('n', '<leader>pc', pack_clean, { desc = '[P]ack [C]lean' })
-vim.keymap.set('n', '<leader>pu', function() vim.pack.update() end, { desc = '[P]ack [U]pdate' })
+local keymap = vim.keymap.set
+keymap('n', '<leader>pc', pack_clean, { desc = '[P]ack [C]lean' })
+keymap('n', '<leader>pu', function() vim.pack.update() end, { desc = '[P]ack [U]pdate' })
