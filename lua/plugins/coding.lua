@@ -9,7 +9,8 @@ vim.pack.add {
   { src = 'https://github.com/neovim/nvim-lspconfig' }, -- Optional, but saves work
   { src = 'https://github.com/folke/flash.nvim' },
   { src = 'https://github.com/lambdalisue/vim-suda' },
-  { src = 'https://github.com/ThePrimeagen/harpoon', version = 'harpoon2' },
+  { src = 'https://github.com/ThePrimeagen/harpoon',   version = 'harpoon2' },
+  { src = "https://github.com/nvim-mini/mini.surround" }
 }
 
 require('mason').setup {}
@@ -59,6 +60,9 @@ require('lazydev').setup {
   },
 }
 
+require('mini.surround').setup()
+
+
 vim.lsp.enable {
   'lua_ls',
   'basedpyright',
@@ -66,6 +70,7 @@ vim.lsp.enable {
   'ts_ls',
   'clangd',
   'hyprls',
+  'rust_analyzer'
 }
 
 vim.diagnostic.config {
